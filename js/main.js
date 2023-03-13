@@ -24,31 +24,68 @@ document.addEventListener("click", function (e) {
     menu.classList.remove("active")
     document.body.style.overflow = "";
   }
-  if (elementInteractive.closest(".services__item")) {
+  if (elementInteractive.closest(".services__item")) { // Открытие и закрытие псевдо аккордеона
 
-    document.querySelectorAll(".services__item").forEach(function (e) {
-      e.classList.remove("active")
-    })
+    if (!elementInteractive.closest(".services__item").classList.contains("active")) {
+      document.querySelectorAll(".services__item").forEach(function (e) {
+        e.classList.remove("active")
+      })
 
-    document.querySelectorAll(".services__init-image").forEach(function (e) {
-      e.removeAttribute('style');
-    })
-    document.querySelectorAll(".services__wrapper-text").forEach(function (e) {
-      e.removeAttribute('style');
-    })
+      document.querySelectorAll(".services__init-image").forEach(function (e) {
+        e.removeAttribute('style');
+      })
 
-    elementInteractive.closest(".services__item").classList.toggle("active");
+      document.querySelectorAll(".services__wrapper-text").forEach(function (e) {
+        e.removeAttribute('style');
+      })
 
-    if (elementInteractive.closest(".services__item").classList.contains("active")) {
+      elementInteractive.closest(".services__item").classList.add("active");
+
       elementInteractive.closest(".services__item").querySelector(".services__init-image").style.height = elementInteractive.closest(".services__item").querySelector(".services__wrapper-image").scrollHeight + 'px';
+
       elementInteractive.closest(".services__item").querySelector(".services__wrapper-text").style.height = elementInteractive.closest(".services__item").querySelector(".services__wrapper-text").scrollHeight + 'px';
+
+    } else {
+
+      elementInteractive.closest(".services__item").classList.remove("active");
+
+      document.querySelectorAll(".services__item").forEach(function (e) {
+        e.classList.remove("active")
+      })
+
+      document.querySelectorAll(".services__init-image").forEach(function (e) {
+        e.removeAttribute('style');
+      })
+
+      document.querySelectorAll(".services__wrapper-text").forEach(function (e) {
+        e.removeAttribute('style');
+      })
     }
   }
-  if (elementInteractive.closest(".services__button")) {
-    document.querySelectorAll(".services__item").forEach(function (e) {
-      e.classList.remove("active")
-    })
-    elementInteractive.closest(".services__item").classList.add("active");
+  if (elementInteractive.closest(".contacts-middle__exit")) { // Закрытие и открытие адреса на карте
+    elementInteractive.closest(".contacts-middle__wrapper-map").classList.add("active");
+  }
+  if (elementInteractive.closest(".contacts-middle__button")) { // Закрытие и открытие адреса на карте
+    elementInteractive.closest(".contacts-middle__wrapper-map").classList.remove("active");
+  }
+  if (elementInteractive.closest(".feedback-init")) { // Открытие и закрытие формы
+    document.querySelector(".wrapper-form-feedback").classList.add("active");
+    menu.classList.remove("active")
+    document.body.style.overflow = "hidden";
+  }
+  if (elementInteractive.closest(".vacancy-init")) { // Открытие и закрытие формы
+    document.querySelector(".wrapper-form-vacancy").classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+  if (elementInteractive.closest(".wrapper-form__close")) { // Открытие и закрытие формы
+    elementInteractive.closest(".wrapper-form").classList.remove("interactive");
+    elementInteractive.closest(".wrapper-form").classList.remove("active");
+    document.body.style.overflow = "";
+  }
+  if (elementInteractive.closest(".wrapper-form__exit")) { // Открытие и закрытие формы
+    elementInteractive.closest(".wrapper-form").classList.remove("interactive");
+    elementInteractive.closest(".wrapper-form").classList.remove("active");
+    document.body.style.overflow = "";
   }
 })
 
@@ -72,11 +109,15 @@ testWebP(function (support) {
   }
 });
 
+// Меняем заливку у хеадере при скролле
+
 document.addEventListener("scroll", function (e) {
 
   let scrollY = window.scrollY;
 
-  if(scrollY >= 100) {
+  let headerHeight = document.querySelector(".header").scrollHeight - 50;
+
+  if (scrollY >= headerHeight) {
     document.querySelector(".header").classList.add("active")
   } else {
     document.querySelector(".header").classList.remove("active")
@@ -95,97 +136,153 @@ ScrollSmoother.create({
 	effects: true // возможность влиять на скорость скрола у отдельных элементов data-speed=".6"
 })
 
-    // Слайдер
+    // Аккордеон 
+
+const accordionItemsInit = document.querySelector('.vacancy-item');
+
+const accordionItems = document.querySelectorAll('.vacancy-item');
+
+if (accordionItemsInit) {
+
+  if (accordionItems.length > 0) {
+    accordionItems.forEach((item) => {
+      const accordionHeader = item.querySelector('.accordion-init')
+
+      accordionHeader.addEventListener('click', () => {
+
+        const openItem = document.querySelector('.accordion-open')
+
+        toggleItem(item)
+
+        if (openItem && openItem !== item) {
+          toggleItem(openItem)
+        }
+      })
+    })
+  }
+
+  const toggleItem = (item) => {
+    const accordionContent = item.querySelector('.vacancy-item__bottom')
+
+    if (item.classList.contains('accordion-open')) {
+      accordionContent.removeAttribute('style')
+      item.classList.remove('accordion-open')
+    } else {
+      accordionContent.style.height = accordionContent.scrollHeight + 'px'
+      item.classList.add('accordion-open')
+    }
+  }
+  
+}
+
+    // Слайдер в hero
 
 const heroSliderInit = document.querySelector(".hero-bottom-slider");
 
 if(heroSliderInit) {
-  const swiper = new Swiper('.hero-bottom-slider', {
+  const heroSlider = new Swiper('.hero-bottom-slider', {
     loop: true,
-    // loopAdditionalSlides: 3, // Добавляет количество слайдов которые будут склонированы после создания цикла
-    // centeredSlides: true, // центрирует активный слайд по центру а не слева
     observer: true,
     observeParents: true,
     watchOverflow: true,
     slidesPerView: 1,
     spaceBetween: 32,
-    // effect: "fade", анимация перелистывания слайдера
-    // slidesPerGroup: 1, 
-    // centeredSlides: true, // активный слайд будет в центре
-    // autoHeight: true,
-    direction: 'vertical',
     speed: 500, // Автовоспроизведение
     autoplay: {
     delay: 5000,
     disableOnInteraction: false,
     },
-    // grid: { // если нужно сделать слайдер не в 1 строку
-    //   rows: 2,
-    // },
-    // thumbs: { // Читаем ниже что даёт эта настройка
-    //   swiper: thumbsSwiper,
-    // },
     pagination: {
       el: '.hero-bottom-slider-pagination',
       clickable: true,
+    },
+    breakpoints: {
+      320: {
+        direction: 'horizontal',
+      },
+      1024: {
+        direction: 'vertical',
+      },
     },
   });
   
 }
 
-// Обычная разметка слайдера
-
-// <div class="swiper">
-//   <div class="swiper-wrapper">
-//     <div class="swiper-slide">Slide 1</div>
-//     <div class="swiper-slide">Slide 2</div>
-//     <div class="swiper-slide">Slide 3</div>
-//   </div>
-//   <div class="swiper-pagination"></div>
-
-//   <div class="swiper-button-prev"></div>
-//   <div class="swiper-button-next"></div>
-
-//   <div class="swiper-scrollbar"></div>
-// </div>
-
-// Разметка слайдера с thumb. Этот слайдер выглядит как обычный слайдер в карточках товара в интернет магазине. Т.е один верхний слайдер с большой картинкой, и снизу под ним маленький слайдер с маленькими картинками. Так вот, каталог свайпер это основной, а thumbs свайпер второй слайдер. Инициализируем два слайдера, первому слайдеру пишем консту thumbsSwiper(можно и поменять) а второму слайдеру пишем в настройках thumb, другими словами связываем их. и все, всё работает
-
-/* <div class="wrapper">
-<div class="swiper catalog__swiper catalog-swiper">
-  <div class="swiper-wrapper catalog-swiper__wrapper">
-    <div class="swiper-slide catalog-swiper__slide">
-      <img src="./img/01.jpg" alt="">
-    </div>
-    <div class="swiper-slide catalog-swiper__slide">
-      <img src="./img/02.jpg" alt="">
-    </div>
-    <div class="swiper-slide catalog-swiper__slide">
-      <img src="./img/03.jpg" alt="">
-    </div>
-    <div class="swiper-slide catalog-swiper__slide">
-      <img src="./img/04.jpg" alt="">
-    </div>
-
-  </div>
-</div>
-<div class="swiper__thumbs swiper thumbs-swiper">
-  <div class="swiper-wrapper thumbs-swiper__wrapper">
-    <div class="swiper-slide thumbs-swiper__slide">
-      <img src="./img/01.jpg" alt="">
-    </div>
-    <div class="swiper-slide catalog-swiper__slide">
-      <img src="./img/02.jpg" alt="">
-    </div>
-    <div class="swiper-slide catalog-swiper__slide">
-      <img src="./img/03.jpg" alt="">
-    </div>
-    <div class="swiper-slide catalog-swiper__slide">
-      <img src="./img/04.jpg" alt="">
-    </div>
-  </div>
-</div>
-</div> */
+// const swiper = new Swiper('.hero__swiper', {
+//   loop: true,
+//   // loopAdditionalSlides: 3, // Добавляет количество слайдов которые будут склонированы после создания цикла
+//   // centeredSlides: true, // центрирует активный слайд по центру а не слева
+//   observer: true,
+//   observeParents: true,
+//   watchOverflow: true,
+//   slidesPerView: 1,
+//   spaceBetween: 32,
+//   // effect: "fade", анимация перелистывания слайдера
+//   // slidesPerGroup: 1, 
+//   // centeredSlides: true, // активный слайд будет в центре
+//   // autoHeight: true,
+//   direction: 'horizontal',
+//   // speed: 500, // Автовоспроизведение
+//   // autoplay: {
+//   // delay: 5000,
+//   // disableOnInteraction: false,
+//   // waitForTransition: false, если нужно чтобы слайды листались когда пользователь уходит со страницы
+//   // },
+//   // grid: { // если нужно сделать слайдер не в 1 строку
+//   //   rows: 2,
+//   // },
+//   // thumbs: { // Читаем ниже что даёт эта настройка
+//   //   swiper: thumbsSwiper,
+//   // },
+//   pagination: {
+//     el: '.hero__pagination',
+//     clickable: true,
+//     // dynamicBullets: true, // Если много кружков пагинации
+//     // dynamicMainBullets: 3, // Показывает количество отображаемых кружков пагинаии при включеном dynamicBullets
+//   },
+//   navigation: {
+//     nextEl: '.hero__button-next',
+//     prevEl: '.hero__button-prev',
+//   },
+//   // scrollbar: {
+//   //   el: '.hero__scrollbar',
+//   //   draggable: true, // позволяет сделать полосу прокрутки перетаскиваемой
+//   // },
+//   // breakpoints: {
+//   //   320: {
+//   //     slidesPerView: 2,
+//   //     spaceBetween: 20
+//   //   },
+//   //   480: {
+//   //     slidesPerView: 3,
+//   //     spaceBetween: 30
+//   //   },
+//   //   640: {
+//   //     slidesPerView: 4,
+//   //     spaceBetween: 40
+//   //   }
+//   // },
+//   // on: {
+//   // slideChange () {
+//   // Событие будет запущено при изменении текущего активного слайда
+//   // },
+//   // slideChangeTransitionEnd () {
+//   // Событие будет запущено после анимации другого слайда (следующего или предыдущего).
+//   // },
+//   // slideChangeTransitionStart() {
+//   // Событие будет запущено в начале анимации для другого слайда (следующего или предыдущего). Т.е при клике на кнопку или пагинацию или перелистывание
+//   // },
+//   //   slideNextTransitionStart() {
+//   // То же, что и "slideChangeTransitionStart", но только для направления "вперед"
+//   //   },
+//   //   slidePrevTransitionStart() {
+//   // То же, что и "slideChangeTransitionStart", но только для направления "назад"
+//   //   },
+//   //   afterInit() {
+//   // Событие будет запущено сразу после инициализации т.е при загрузке страницы сразу все заработает
+//   //   }
+//   // }
+// });
 
     // Динамические адаптив
 
@@ -342,5 +439,155 @@ DynamicAdapt.prototype.arraySort = function (arr) {
 
 const da = new DynamicAdapt("max");
 da.init();
+
+    // Яндекс карта
+
+const mapClass = document.querySelector(".contacts-middle__map")
+if (mapClass) {
+  ymaps.ready(init);
+
+  function init() {
+    const myMap = new ymaps.Map(
+      "map", {
+        center: [55.42901656929713, 86.22126199999998],
+        zoom: 18,
+      },
+    );
+    var myPlacemark = new ymaps.Placemark(myMap.getCenter(55.42901656929713, 86.22126199999998), {}, {});
+
+    myMap.geoObjects.add(myPlacemark);
+    myMap.controls.remove('geolocationControl'); // удаляем геолокацию
+    myMap.controls.remove('searchControl'); // удаляем поиск
+    myMap.controls.remove('trafficControl'); // удаляем контроль трафика
+    myMap.controls.remove('typeSelector'); // удаляем тип
+    myMap.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
+    myMap.controls.remove('zoomControl'); // удаляем контрол зуммирования
+    myMap.controls.remove('rulerControl'); // удаляем контрол правил
+  }
+}
+
+    // Валидация
+
+const formFeedbackInit = document.querySelector(".form-feedback");
+
+const formVacancykInit = document.querySelector(".form-vacancy");
+
+// Инпут маска
+
+if (formFeedbackInit) {
+  var formFeedbackInput = formFeedbackInit.querySelector("input[type='tel']");
+  var im = new Inputmask("+7(999)999-99-99");
+  im.mask(formFeedbackInput);
+}
+
+if (formVacancykInit) {
+  var formVacancyInput = formVacancykInit.querySelector("input[type='tel']");
+  var im = new Inputmask("+7(999)999-99-99");
+  im.mask(formVacancyInput);
+}
+
+if (formFeedbackInit) {
+  const validator = new JustValidate('.form-feedback', { // можно использовать классы вместо ид
+    errorLabelStyle: { // Стили для ошибки
+      color: '#F13F58',
+    }
+
+  });
+
+  validator
+    .addField('#name', [{ // можно использовать классы вместо ид
+        rule: 'required',
+        errorMessage: 'Введите ваше Ф.И.О',
+      },
+      {
+        rule: 'minLength',
+        value: 1,
+        errorMessage: 'Минимальное количество букв - 1',
+      },
+    ])
+    .addField('#phone', [{
+        rule: 'required',
+        errorMessage: 'Введите ваш телефон',
+      },
+      {
+        validator: (value) => { // Своя проверка, будет работать как rule
+          const phone = formFeedbackInput.inputmask.unmaskedvalue(); // Получает чистое значение инпута в котором инпут маск
+          return Boolean(Number(phone) && phone.length == 10);
+        },
+        errorMessage: 'Введите ваш полный телефон',
+      },
+    ])
+    .addField('#email', [{
+        rule: 'required',
+        errorMessage: 'Введите вашу почту!',
+      },
+      {
+        rule: 'email',
+        errorMessage: 'Введите правильную почту!',
+      },
+    ])
+    .onSuccess((event) => { // Если форма проходит валидацию то происходит код ниже
+
+      document.querySelector(".wrapper-form-feedback").classList.add("interactive");
+
+      document.querySelector(".form-feedback").querySelectorAll("input").forEach(function (e) {
+        e.value = "";
+      })
+
+      document.querySelector(".form-feedback").querySelector("textarea").value = "";
+    })
+}
+
+if (formVacancykInit) {
+  const validator = new JustValidate('.form-vacancy', { // можно использовать классы вместо ид
+    errorLabelStyle: { // Стили для ошибки
+      color: '#F13F58',
+    }
+
+  });
+
+  validator
+    .addField('#name', [{ // можно использовать классы вместо ид
+        rule: 'required',
+        errorMessage: 'Введите ваше Ф.И.О',
+      },
+      {
+        rule: 'minLength',
+        value: 1,
+        errorMessage: 'Минимальное количество букв - 1',
+      },
+    ])
+    .addField('#phone', [{
+        rule: 'required',
+        errorMessage: 'Введите ваш телефон',
+      },
+      {
+        validator: (value) => { // Своя проверка, будет работать как rule
+          const phone = formVacancyInput.inputmask.unmaskedvalue(); // Получает чистое значение инпута в котором инпут маск
+          return Boolean(Number(phone) && phone.length == 10);
+        },
+        errorMessage: 'Введите ваш полный телефон',
+      },
+    ])
+    .addField('#email', [{
+        rule: 'required',
+        errorMessage: 'Введите вашу почту!',
+      },
+      {
+        rule: 'email',
+        errorMessage: 'Введите правильную почту!',
+      },
+    ])
+    .onSuccess((event) => { // Если форма проходит валидацию то происходит код ниже
+
+      document.querySelector(".wrapper-form-vacancy").classList.add("interactive");
+
+      document.querySelector(".form-feedback").querySelectorAll("input").forEach(function (e) {
+        e.value = "";
+      })
+
+      document.querySelector(".form-feedback").querySelector("textarea").value = "";
+    })
+}
 
 }
