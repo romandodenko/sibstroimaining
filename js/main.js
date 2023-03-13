@@ -69,23 +69,33 @@ document.addEventListener("click", function (e) {
     elementInteractive.closest(".contacts-middle__wrapper-map").classList.remove("active");
   }
   if (elementInteractive.closest(".feedback-init")) { // Открытие и закрытие формы
-    document.querySelector(".wrapper-form-feedback").classList.add("active");
+    document.querySelector(".wrapper-form").classList.add("active");
+    document.querySelector(".wrapper-form").querySelector(".wrapper-form__title").innerHTML = "Обратная связь";
     menu.classList.remove("active")
     document.body.style.overflow = "hidden";
   }
   if (elementInteractive.closest(".vacancy-init")) { // Открытие и закрытие формы
-    document.querySelector(".wrapper-form-vacancy").classList.add("active");
+    document.querySelector(".wrapper-form").classList.add("active");
+    document.querySelector(".wrapper-form").querySelector(".wrapper-form__title").innerHTML = "Анкета кандидата";
     document.body.style.overflow = "hidden";
   }
   if (elementInteractive.closest(".wrapper-form__close")) { // Открытие и закрытие формы
     elementInteractive.closest(".wrapper-form").classList.remove("interactive");
     elementInteractive.closest(".wrapper-form").classList.remove("active");
+    document.querySelector(".wrapper-form").querySelector(".wrapper-form__title").innerHTML = "";
     document.body.style.overflow = "";
   }
   if (elementInteractive.closest(".wrapper-form__exit")) { // Открытие и закрытие формы
     elementInteractive.closest(".wrapper-form").classList.remove("interactive");
     elementInteractive.closest(".wrapper-form").classList.remove("active");
+    document.querySelector(".wrapper-form").querySelector(".wrapper-form__title").innerHTML = "";
     document.body.style.overflow = "";
+  }
+  if (elementInteractive.closest(".upper")) { // Перемещение к верху страницы
+    window.scrollTo({
+      top,
+      behavior: 'smooth'
+    });
   }
 })
 
@@ -109,7 +119,7 @@ testWebP(function (support) {
   }
 });
 
-// Меняем заливку у хеадере при скролле
+// Перемещение к верху страницы
 
 document.addEventListener("scroll", function (e) {
 
@@ -118,22 +128,82 @@ document.addEventListener("scroll", function (e) {
   let headerHeight = document.querySelector(".header").scrollHeight - 50;
 
   if (scrollY >= headerHeight) {
-    document.querySelector(".header").classList.add("active")
+    document.querySelector(".upper").classList.add("active")
   } else {
-    document.querySelector(".header").classList.remove("active")
+    document.querySelector(".upper").classList.remove("active")
   }
 
 })
 
     // Гриншок 
 
-gsap.registerPlugin(ScrollTrigger,ScrollSmoother)
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
 ScrollSmoother.create({
-	wrapper: '.page', // оболочка
-	content: '.scroll', // контент который будет плавно скролиться
-	smooth: 1.5, // скорость
-	effects: true // возможность влиять на скорость скрола у отдельных элементов data-speed=".6"
+  wrapper: '.page', // оболочка
+  content: '.scroll', // контент который будет плавно скролиться
+  smooth: 1.5, // скорость
+  effects: true // возможность влиять на скорость скрола у отдельных элементов data-speed=".6"
+})
+
+gsap.fromTo('.history-middle__wrapper-text', {
+  y: 20,
+}, {
+  y: -100,
+  scrollTrigger: {
+    trigger: '.history-top', // когда в поле зрения появляется этот элемент, начинается анимация
+    start: 'bottom center', // когда начинается анимация( в данном примере анимация начинается когда достигает половины блока trigger)
+    // end: '820', // когда заканчивается анимация
+    scrub: 2 // чтобы анимация возвращалась к значениям до анимации
+  }
+})
+
+gsap.fromTo('.history-middle__image_1', {
+  yPercent: -5,
+}, {
+  yPercent: 5,
+  scrollTrigger: {
+    trigger: '.history-top', // когда в поле зрения появляется этот элемент, начинается анимация
+    start: 'bottom center', // когда начинается анимация( в данном примере анимация начинается когда достигает половины блока trigger)
+    // end: '820', // когда заканчивается анимация
+    scrub: 2 // чтобы анимация возвращалась к значениям до анимации
+  }
+})
+
+gsap.fromTo('.history-middle__image_2', {
+  yPercent: 5,
+}, {
+  yPercent: -5,
+  scrollTrigger: {
+    trigger: '.history-top', // когда в поле зрения появляется этот элемент, начинается анимация
+    start: 'bottom center', // когда начинается анимация( в данном примере анимация начинается когда достигает половины блока trigger)
+    // end: '820', // когда заканчивается анимация
+    scrub: 2 // чтобы анимация возвращалась к значениям до анимации
+  }
+})
+
+gsap.fromTo('.history-middle__image_3', {
+  xPercent: 15,
+}, {
+  xPercent: -30,
+  scrollTrigger: {
+    trigger: '.history-middle__image_1', // когда в поле зрения появляется этот элемент, начинается анимация
+    start: 'top bottom', // когда начинается анимация( в данном примере анимация начинается когда достигает половины блока trigger)
+    // end: '820', // когда заканчивается анимация
+    scrub: 5 // чтобы анимация возвращалась к значениям до анимации
+  }
+})
+
+gsap.fromTo('.history-middle__image_4', {
+  xPercent: -5,
+}, {
+  xPercent: 40,
+  scrollTrigger: {
+    trigger: '.history-middle__image_1', // когда в поле зрения появляется этот элемент, начинается анимация
+    start: 'top bottom', // когда начинается анимация( в данном примере анимация начинается когда достигает половины блока trigger)
+    // end: '820', // когда заканчивается анимация
+    scrub: 5 // чтобы анимация возвращалась к значениям до анимации
+  }
 })
 
     // Аккордеон 
@@ -175,11 +245,11 @@ if (accordionItemsInit) {
   
 }
 
-    // Слайдер в hero
+    // Слайдеры
 
 const heroSliderInit = document.querySelector(".hero-bottom-slider");
 
-if(heroSliderInit) {
+if (heroSliderInit) {
   const heroSlider = new Swiper('.hero-bottom-slider', {
     loop: true,
     observer: true,
@@ -189,8 +259,8 @@ if(heroSliderInit) {
     spaceBetween: 32,
     speed: 500, // Автовоспроизведение
     autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
+      delay: 5000,
+      disableOnInteraction: false,
     },
     pagination: {
       el: '.hero-bottom-slider-pagination',
@@ -205,84 +275,63 @@ if(heroSliderInit) {
       },
     },
   });
-  
+
 }
 
-// const swiper = new Swiper('.hero__swiper', {
-//   loop: true,
-//   // loopAdditionalSlides: 3, // Добавляет количество слайдов которые будут склонированы после создания цикла
-//   // centeredSlides: true, // центрирует активный слайд по центру а не слева
-//   observer: true,
-//   observeParents: true,
-//   watchOverflow: true,
-//   slidesPerView: 1,
-//   spaceBetween: 32,
-//   // effect: "fade", анимация перелистывания слайдера
-//   // slidesPerGroup: 1, 
-//   // centeredSlides: true, // активный слайд будет в центре
-//   // autoHeight: true,
-//   direction: 'horizontal',
-//   // speed: 500, // Автовоспроизведение
-//   // autoplay: {
-//   // delay: 5000,
-//   // disableOnInteraction: false,
-//   // waitForTransition: false, если нужно чтобы слайды листались когда пользователь уходит со страницы
-//   // },
-//   // grid: { // если нужно сделать слайдер не в 1 строку
-//   //   rows: 2,
-//   // },
-//   // thumbs: { // Читаем ниже что даёт эта настройка
-//   //   swiper: thumbsSwiper,
-//   // },
-//   pagination: {
-//     el: '.hero__pagination',
-//     clickable: true,
-//     // dynamicBullets: true, // Если много кружков пагинации
-//     // dynamicMainBullets: 3, // Показывает количество отображаемых кружков пагинаии при включеном dynamicBullets
-//   },
-//   navigation: {
-//     nextEl: '.hero__button-next',
-//     prevEl: '.hero__button-prev',
-//   },
-//   // scrollbar: {
-//   //   el: '.hero__scrollbar',
-//   //   draggable: true, // позволяет сделать полосу прокрутки перетаскиваемой
-//   // },
-//   // breakpoints: {
-//   //   320: {
-//   //     slidesPerView: 2,
-//   //     spaceBetween: 20
-//   //   },
-//   //   480: {
-//   //     slidesPerView: 3,
-//   //     spaceBetween: 30
-//   //   },
-//   //   640: {
-//   //     slidesPerView: 4,
-//   //     spaceBetween: 40
-//   //   }
-//   // },
-//   // on: {
-//   // slideChange () {
-//   // Событие будет запущено при изменении текущего активного слайда
-//   // },
-//   // slideChangeTransitionEnd () {
-//   // Событие будет запущено после анимации другого слайда (следующего или предыдущего).
-//   // },
-//   // slideChangeTransitionStart() {
-//   // Событие будет запущено в начале анимации для другого слайда (следующего или предыдущего). Т.е при клике на кнопку или пагинацию или перелистывание
-//   // },
-//   //   slideNextTransitionStart() {
-//   // То же, что и "slideChangeTransitionStart", но только для направления "вперед"
-//   //   },
-//   //   slidePrevTransitionStart() {
-//   // То же, что и "slideChangeTransitionStart", но только для направления "назад"
-//   //   },
-//   //   afterInit() {
-//   // Событие будет запущено сразу после инициализации т.е при загрузке страницы сразу все заработает
-//   //   }
-//   // }
-// });
+const rewievsSliderInit = document.querySelector(".rewievs-slider");
+
+if (rewievsSliderInit) {
+  const rewievsSlider = new Swiper('.rewievs-slider', {
+    observer: true,
+    observeParents: true,
+    watchOverflow: true,
+    slidesPerView: 1,
+    spaceBetween: 0,
+    direction: 'horizontal',
+    navigation: {
+      nextEl: '.rewievs-button-next',
+      prevEl: '.rewievs-button-prev',
+    },
+  });
+}
+
+const documentsSliderInit = document.querySelector(".documents-slider");
+
+if (documentsSliderInit) {
+  if (document.body.clientWidth <= 991) {
+    const documentsSlider = new Swiper('.documents-slider', {
+      observer: true,
+      observeParents: true,
+      watchOverflow: true,
+      slidesPerView: "auto",
+      spaceBetween: 10,
+      direction: 'horizontal',
+      navigation: {
+        nextEl: '.documents-slider-button-next',
+        prevEl: '.documents-slider-button-prev',
+      },
+    });
+  }
+}
+
+const projectSliderInit = document.querySelector(".project-slider");
+
+if (projectSliderInit) {
+  if (document.body.clientWidth <= 992) {
+    const projectSlider = new Swiper('.project-slider', {
+      observer: true,
+      observeParents: true,
+      watchOverflow: true,
+      slidesPerView: 1,
+      spaceBetween: 0,
+      direction: 'horizontal',
+      navigation: {
+        nextEl: '.project-slider-button-next',
+        prevEl: '.project-slider-button-prev',
+      },
+    });
+  }
+}
 
     // Динамические адаптив
 
@@ -468,26 +517,18 @@ if (mapClass) {
 
     // Валидация
 
-const formFeedbackInit = document.querySelector(".form-feedback");
-
-const formVacancykInit = document.querySelector(".form-vacancy");
+const formInit = document.querySelector(".form");
 
 // Инпут маска
 
-if (formFeedbackInit) {
-  var formFeedbackInput = formFeedbackInit.querySelector("input[type='tel']");
+if (formInit) {
+  var formInput = formInit.querySelector("input[type='tel']");
   var im = new Inputmask("+7(999)999-99-99");
-  im.mask(formFeedbackInput);
+  im.mask(formInput);
 }
 
-if (formVacancykInit) {
-  var formVacancyInput = formVacancykInit.querySelector("input[type='tel']");
-  var im = new Inputmask("+7(999)999-99-99");
-  im.mask(formVacancyInput);
-}
-
-if (formFeedbackInit) {
-  const validator = new JustValidate('.form-feedback', { // можно использовать классы вместо ид
+if (formInit) {
+  const validator = new JustValidate('.form', { // можно использовать классы вместо ид
     errorLabelStyle: { // Стили для ошибки
       color: '#F13F58',
     }
@@ -511,7 +552,7 @@ if (formFeedbackInit) {
       },
       {
         validator: (value) => { // Своя проверка, будет работать как rule
-          const phone = formFeedbackInput.inputmask.unmaskedvalue(); // Получает чистое значение инпута в котором инпут маск
+          const phone = formInput.inputmask.unmaskedvalue(); // Получает чистое значение инпута в котором инпут маск
           return Boolean(Number(phone) && phone.length == 10);
         },
         errorMessage: 'Введите ваш полный телефон',
@@ -528,65 +569,13 @@ if (formFeedbackInit) {
     ])
     .onSuccess((event) => { // Если форма проходит валидацию то происходит код ниже
 
-      document.querySelector(".wrapper-form-feedback").classList.add("interactive");
+      document.querySelector(".wrapper-form").classList.add("interactive");
 
-      document.querySelector(".form-feedback").querySelectorAll("input").forEach(function (e) {
+      document.querySelector(".form").querySelectorAll("input").forEach(function (e) {
         e.value = "";
       })
 
-      document.querySelector(".form-feedback").querySelector("textarea").value = "";
-    })
-}
-
-if (formVacancykInit) {
-  const validator = new JustValidate('.form-vacancy', { // можно использовать классы вместо ид
-    errorLabelStyle: { // Стили для ошибки
-      color: '#F13F58',
-    }
-
-  });
-
-  validator
-    .addField('#name', [{ // можно использовать классы вместо ид
-        rule: 'required',
-        errorMessage: 'Введите ваше Ф.И.О',
-      },
-      {
-        rule: 'minLength',
-        value: 1,
-        errorMessage: 'Минимальное количество букв - 1',
-      },
-    ])
-    .addField('#phone', [{
-        rule: 'required',
-        errorMessage: 'Введите ваш телефон',
-      },
-      {
-        validator: (value) => { // Своя проверка, будет работать как rule
-          const phone = formVacancyInput.inputmask.unmaskedvalue(); // Получает чистое значение инпута в котором инпут маск
-          return Boolean(Number(phone) && phone.length == 10);
-        },
-        errorMessage: 'Введите ваш полный телефон',
-      },
-    ])
-    .addField('#email', [{
-        rule: 'required',
-        errorMessage: 'Введите вашу почту!',
-      },
-      {
-        rule: 'email',
-        errorMessage: 'Введите правильную почту!',
-      },
-    ])
-    .onSuccess((event) => { // Если форма проходит валидацию то происходит код ниже
-
-      document.querySelector(".wrapper-form-vacancy").classList.add("interactive");
-
-      document.querySelector(".form-feedback").querySelectorAll("input").forEach(function (e) {
-        e.value = "";
-      })
-
-      document.querySelector(".form-feedback").querySelector("textarea").value = "";
+      document.querySelector(".form").querySelector("textarea").value = "";
     })
 }
 

@@ -20,6 +20,9 @@
   <script defer src="./resources/gsap/gsap.min.js"></script>
   <script defer src="./resources/gsap/ScrollTrigger.min.js"></script>
   <script defer src="./resources/gsap/ScrollSmoother.min.js"></script>
+  <script defer src="https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU"></script>
+  <script defer src="./resources/validate/new/just-validate.min.js"></script>
+  <script defer src="./resources/validate/inputmask.js"></script>
   <script defer src="./js/main.js"></script>
   <title>Сибстроймайнинг - Горно-строительная компания</title>
 </head>
@@ -48,7 +51,7 @@
                 <span></span>
                 <span></span>
               </button>
-              <button class="header__button header__button_none button-v1" aria-label="Обратная связь">
+              <button class="header__button header__button_none feedback-init button-v1" aria-label="Обратная связь">
                 Обратная связь
                 <span class="decor decor_1"></span>
                 <span class="decor decor_2"></span>
@@ -60,128 +63,6 @@
         </div>
       </header>
       <main>
-        <section class="header-menu">
-          <div class="container">
-            <div class="header-menu__top">
-              <div class="null-el"></div>
-              <div class="header-menu__top-item">
-                <button class="header-menu__exit-menu" aria-label="Закрыть меню">
-                  <svg width="28" height="28">
-                    <use xlink:href="./img/svg/sprites.svg#icon-exit"></use>
-                  </svg>
-                </button>
-                <button class="header-menu__button button-v1" aria-label="Обратная связь">
-                  Обратная связь
-                  <span class="decor decor_1"></span>
-                  <span class="decor decor_2"></span>
-                  <span class="decor decor_3"></span>
-                  <span class="decor decor_4"></span>
-                </button>
-              </div>
-            </div>
-            <div class="header-menu__body">
-              <div class="header-menu__head">
-                <div class="header-menu__row">
-                  <div class="header-menu__item">
-                    <h2 class="header-menu__title title-v2">
-                      Меню
-                    </h2>
-                    <span class="decor decor_1"></span>
-                    <span class="decor decor_2"></span>
-                    <span class="decor decor_3"></span>
-                    <span class="decor decor_4"></span>
-                  </div>
-                  <div class="header-menu__item header-menu__item_2">
-                    <span class="decor decor_1"></span>
-                    <span class="decor decor_2"></span>
-                    <span class="decor decor_3"></span>
-                    <span class="decor decor_4"></span>
-                    <div class="line line-1"></div>
-                  </div>
-                </div>
-                <div class="header-menu__row">
-                  <div class="header-menu__item">
-                    <nav class="header-menu__nav" aria-label="Навигация">
-                      <ul class="header-menu__list header-menu__list_1" aria-label="Список навигации">
-                        <li class="header-menu__list-item">
-                          <a class="header-menu__link link-v1" href="#!" aria-label="Услуги">
-                            Услуги
-                          </a>
-                        </li>
-                        <li class="header-menu__list-item">
-                          <a class="header-menu__link link-v1" href="#!" aria-label="Документация">
-                            Документация
-                          </a>
-                        </li>
-                        <li class="header-menu__list-item">
-                          <a class="header-menu__link link-v1" href="#!" aria-label="Вакансии">
-                            Вакансии
-                          </a>
-                        </li>
-                        <li class="header-menu__list-item">
-                          <a class="header-menu__link link-v1" href="#!" aria-label="Проекты">
-                            Проекты
-                          </a>
-                        </li>
-                        <li class="header-menu__list-item">
-                          <a class="header-menu__link link-v1" href="#!" aria-label="Отзывы">
-                            Отзывы
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
-                    <span class="decor decor_1"></span>
-                    <span class="decor decor_2"></span>
-                    <span class="decor decor_3"></span>
-                    <span class="decor decor_4"></span>
-                  </div>
-                  <div class="header-menu__item header-menu__item_2">
-                    <span class="decor decor_1"></span>
-                    <span class="decor decor_2"></span>
-                    <span class="decor decor_3"></span>
-                    <span class="decor decor_4"></span>
-                    <div class="line line-2"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="header-menu__bottom">
-                <h3 class="header-menu__subtitle title-v3">
-                  Компания «Сибстроймайнинг»
-                </h3>
-                <ul class="header-menu__list header-menu__list_2" aria-label="Список меню">
-                  <li class="header-menu__list-item header-menu__list-item_2">
-                    <h4 class="header-menu__minititle title-v4">
-                      Офис компании:
-                    </h4>
-                    <address class="header-menu__address text-v1">
-                      Кемерово, <span>пр. Михайлова, 3а, корпус 2</span>
-                    </address>
-                  </li>
-                  <li class="header-menu__list-item header-menu__list-item_2">
-                    <h4 class="header-menu__minititle title-v4">
-                      Телефон:
-                    </h4>
-                    <a class="header-menu__phone text-v1" href="tel:+79050651290">
-                      +7 905 065 1290
-                    </a>
-                  </li>
-                  <li class="header-menu__list-item header-menu__list-item_2">
-                    <h4 class="header-menu__minititle title-v4">
-                      Режим работы:
-                    </h4>
-                    <p class="header-menu__text text-v1">
-                      пн – пт 8:00 – 17:00
-                    </p>
-                  </li>
-                </ul>
-                <span class="decor decor_1"></span>
-                <span class="decor decor_2"></span>
-                <span class="decor decor_3"></span>
-                <span class="decor decor_4"></span>
-              </div>
-            </div>
-          </div>
-        </section>
         <section class="hero">
           <div class="back"></div>
           <div class="hero__top">
@@ -296,14 +177,14 @@
           </div>
         </section>
         <section class="services" id="services">
-          <div class="services-elipse"></div>
+          <div class="elipse"></div>
           <div class="services__container container">
             <ul class="services__list" aria-label="Список услуг">
               <li class="services__item">
                 <div class="services__init-image">
                   <div class="services__wrapper-image">
                     <div class="services__image">
-                      <img src="./img/services-1.svg" alt="Картинка">
+                      <img src="./img/services-1.svg" loading="lazy" alt="Картинка">
                     </div>
                     <span class="decor decor_1"></span>
                     <span class="decor decor_2"></span>
@@ -334,7 +215,7 @@
                 <div class="services__init-image">
                   <div class="services__wrapper-image">
                     <div class="services__image">
-                      <img src="./img/services-2.svg" alt="Картинка">
+                      <img src="./img/services-2.svg" loading="lazy" alt="Картинка">
                     </div>
                     <span class="decor decor_1"></span>
                     <span class="decor decor_2"></span>
@@ -365,7 +246,7 @@
                 <div class="services__init-image">
                   <div class="services__wrapper-image">
                     <div class="services__image">
-                      <img src="./img/services-3.svg" alt="Картинка">
+                      <img src="./img/services-3.svg" loading="lazy" alt="Картинка">
                     </div>
                     <span class="decor decor_1"></span>
                     <span class="decor decor_2"></span>
@@ -396,7 +277,7 @@
                 <div class="services__init-image">
                   <div class="services__wrapper-image">
                     <div class="services__image">
-                      <img src="./img/services-4.svg" alt="Картинка">
+                      <img src="./img/services-4.svg" loading="lazy" alt="Картинка">
                     </div>
                     <span class="decor decor_1"></span>
                     <span class="decor decor_2"></span>
@@ -429,7 +310,7 @@
                 <div class="services__init-image">
                   <div class="services__wrapper-image">
                     <div class="services__image">
-                      <img src="./img/services-5.svg" alt="Картинка">
+                      <img src="./img/services-5.svg" loading="lazy" alt="Картинка">
                     </div>
                     <span class="decor decor_1"></span>
                     <span class="decor decor_2"></span>
@@ -460,7 +341,7 @@
                 <div class="services__init-image">
                   <div class="services__wrapper-image">
                     <div class="services__image">
-                      <img src="./img/services-6.svg" alt="Картинка">
+                      <img src="./img/services-6.svg" loading="lazy" alt="Картинка">
                     </div>
                     <span class="decor decor_1"></span>
                     <span class="decor decor_2"></span>
@@ -490,7 +371,7 @@
                 <div class="services__init-image">
                   <div class="services__wrapper-image">
                     <div class="services__image">
-                      <img src="./img/services-7.svg" alt="Картинка">
+                      <img src="./img/services-7.svg" loading="lazy" alt="Картинка">
                     </div>
                     <span class="decor decor_1"></span>
                     <span class="decor decor_2"></span>
@@ -520,7 +401,7 @@
                 <div class="services__init-image">
                   <div class="services__wrapper-image">
                     <div class="services__image">
-                      <img src="./img/services-8.svg" alt="Картинка">
+                      <img src="./img/services-8.svg" loading="lazy" alt="Картинка">
                     </div>
                     <span class="decor decor_1"></span>
                     <span class="decor decor_2"></span>
@@ -550,14 +431,426 @@
             </ul>
           </div>
         </section>
-        <section></section>
       </main>
       <footer class="contacts">
-        <div class="footer__container container">
-
+        <div class="container">
+          <div class="contacts__content">
+            <div class="contacts__top contacts-top">
+              <div class="contacts-top__item">
+                <h2 class="contacts-top__title title-v2">
+                  Контакты
+                </h2>
+                <span class="decor decor_1"></span>
+                <span class="decor decor_2"></span>
+                <span class="decor decor_3"></span>
+                <span class="decor decor_4"></span>
+              </div>
+              <div class="contacts-top__item contacts-top__item_2">
+                <div class="line line-4"></div>
+                <span class="decor decor_1"></span>
+                <span class="decor decor_2"></span>
+                <span class="decor decor_3"></span>
+                <span class="decor decor_4"></span>
+              </div>
+              <div class="contacts-top__item contacts-top__item_3">
+                <div class="line line-5"></div>
+                <span class="decor decor_1"></span>
+                <span class="decor decor_2"></span>
+                <span class="decor decor_3"></span>
+                <span class="decor decor_4"></span>
+              </div>
+            </div>
+            <div class="contacts__middle contacts-middle">
+              <div class="contacts-middle__bottom-item">
+                <div class="contacts-middle__top">
+                  <span class="decor decor_1"></span>
+                  <span class="decor decor_2"></span>
+                  <span class="decor decor_3"></span>
+                  <span class="decor decor_4"></span>
+                  <div class="contacts-middle__top-head">
+                    <h3 class="contacts-middle__title title-v5">
+                      Компания «Сибстроймайнинг»
+                    </h3>
+                    <span class="decor decor_1"></span>
+                    <span class="decor decor_2"></span>
+                    <span class="decor decor_3"></span>
+                    <span class="decor decor_4"></span>
+                  </div>
+                  <div class="contacts-middle__top-bottom">
+                    <div class="contacts-middle__top-footer">
+                      <span class="decor decor_1"></span>
+                      <span class="decor decor_2"></span>
+                      <span class="decor decor_3"></span>
+                      <span class="decor decor_4"></span>
+                      <ul class="contacts-middle__list" aria-label="Список информации">
+                        <li class="contacts-middle__item">
+                          <h4 class="contacts-middle__subtitle title-v4">
+                            Офис компании:
+                          </h4>
+                          <address class="contacts-middle__address text-v3">
+                            Кемерово,
+                            <span>пр. Михайлова, 3а, корпус 2</span>
+                          </address>
+                        </li>
+                        <li class="contacts-middle__item">
+                          <h4 class="contacts-middle__subtitle title-v4">
+                            Телефон:
+                          </h4>
+                          <a class="contacts-middle__phone text-v3" href="tel:+79050651290">+7 905 065 1290</a>
+                        </li>
+                        <li class="contacts-middle__item">
+                          <h4 class="contacts-middle__subtitle title-v4">
+                            Режим работы:
+                          </h4>
+                          <p class="contacts-middle__text text-v3">
+                            пн – пт 8:00 – 17:00
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="contacts-middle__wrapper-map">
+                  <span class="decor decor_1"></span>
+                  <span class="decor decor_2"></span>
+                  <span class="decor decor_3"></span>
+                  <span class="decor decor_4"></span>
+                  <button class="contacts-middle__button" aria-label="Открыть информацию"><span>!</span>
+                    <span></span></button>
+                  <div class="contacts-middle__wrapper-info">
+                    <div class="contacts-middle__info">
+                      <span class="contacts-middle__icon">
+                        <picture>
+                          <source media="(min-width: 320px)" srcset="./img/icon-map.webp" type="image/webp">
+                          <img src="./img/icon-map.png" loading="lazy" width="30" height="30" alt="Иконка">
+                        </picture>
+                      </span>
+                      <p class="contacts-middle__text text-v6">
+                        Кемерово,
+                        <span>пр. Михайлова, 3а, корпус 2</span>
+                      </p>
+                    </div>
+                    <button class="contacts-middle__exit" aria-label="Закрыть информацию">
+                      <svg width="28" height="28">
+                        <use xlink:href="./img/svg/sprites.svg#icon-exit"></use>
+                      </svg>
+                    </button>
+                    <span class="decor decor_5"></span>
+                    <span class="decor decor_6"></span>
+                    <span class="decor decor_7"></span>
+                    <span class="decor decor_8"></span>
+                  </div>
+                  <div class="contacts-middle__map" id="map"></div>
+                </div>
+                <span class="decor decor_1"></span>
+                <span class="decor decor_2"></span>
+                <span class="decor decor_3"></span>
+                <span class="decor decor_4"></span>
+              </div>
+              <div class="contacts-middle__bottom-item contacts-middle__bottom-item_2">
+                <div class="line line-6"></div>
+                <span class="decor decor_1"></span>
+                <span class="decor decor_2"></span>
+                <span class="decor decor_3"></span>
+                <span class="decor decor_4"></span>
+              </div>
+            </div>
+            <div class="contacts__footer contacts-footer">
+              <div class="contacts-footer__item contacts-footer__item_1">
+                <span class="decor decor_1"></span>
+                <span class="decor decor_2"></span>
+                <span class="decor decor_3"></span>
+                <span class="decor decor_4"></span>
+                <div class="contacts-footer__item-top">
+                  <h2 class="contacts-footer__title title-v2">
+                    Меню
+                  </h2>
+                  <span class="decor decor_1"></span>
+                  <span class="decor decor_2"></span>
+                  <span class="decor decor_3"></span>
+                  <span class="decor decor_4"></span>
+                </div>
+                <div class="contacts-footer__item-bottom">
+                  <ul class="contacts-footer__list" aria-label="Список меню">
+                    <li class="contacts-footer__list-item">
+                      <a class="contacts-footer__link link-v2" href="services.html" aria-label="Услуги">
+                        Услуги
+                      </a>
+                    </li>
+                    <li class="contacts-footer__list-item">
+                      <a class="contacts-footer__link link-v2" href="history.html" aria-label="Документация">
+                        Документация
+                      </a>
+                    </li>
+                    <li class="contacts-footer__list-item">
+                      <a class="contacts-footer__link link-v2" href="vacancy.html" aria-label="Вакансии">
+                        Вакансии
+                      </a>
+                    </li>
+                    <li class="contacts-footer__list-item">
+                      <a class="contacts-footer__link link-v2" href="projects.html" aria-label="Проекты">
+                        Проекты
+                      </a>
+                    </li>
+                    <li class="contacts-footer__list-item">
+                      <a class="contacts-footer__link link-v2" href="history.html" aria-label="Отзывы">
+                        Отзывы
+                      </a>
+                    </li>
+                  </ul>
+                  <span class="decor decor_1"></span>
+                  <span class="decor decor_2"></span>
+                  <span class="decor decor_3"></span>
+                  <span class="decor decor_4"></span>
+                </div>
+              </div>
+              <div class="contacts-footer__item contacts-footer__item_2">
+                <p class="contacts-footer__text text-v4">
+                  <span>ООО «Сибстроймайнинг»</span>
+                  <span>ОГРН: 1205400024730</span>
+                  <span>ИНН: 5402060947</span>
+                  <span>КПП: 540601001</span>
+                </p>
+                <span class="decor decor_1"></span>
+                <span class="decor decor_2"></span>
+                <span class="decor decor_3"></span>
+                <span class="decor decor_4"></span>
+              </div>
+              <div class="contacts-footer__item contacts-footer__item_3">
+                <div class="line line-7"></div>
+                <span class="decor decor_1"></span>
+                <span class="decor decor_2"></span>
+                <span class="decor decor_3"></span>
+                <span class="decor decor_4"></span>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
+    <div class="header-menu">
+      <div class="container">
+        <div class="header-menu__top">
+          <div class="null-el"></div>
+          <div class="header-menu__top-item">
+            <button class="header-menu__exit-menu" aria-label="Закрыть меню">
+              <svg width="28" height="28">
+                <use xlink:href="./img/svg/sprites.svg#icon-exit"></use>
+              </svg>
+            </button>
+            <button class="header-menu__button feedback-init button-v1" aria-label="Обратная связь">
+              Обратная связь
+              <span class="decor decor_1"></span>
+              <span class="decor decor_2"></span>
+              <span class="decor decor_3"></span>
+              <span class="decor decor_4"></span>
+            </button>
+          </div>
+        </div>
+        <div class="header-menu__body">
+          <div class="header-menu__head">
+            <div class="header-menu__row">
+              <div class="header-menu__item">
+                <h2 class="header-menu__title title-v2">
+                  Меню
+                </h2>
+                <span class="decor decor_1"></span>
+                <span class="decor decor_2"></span>
+                <span class="decor decor_3"></span>
+                <span class="decor decor_4"></span>
+              </div>
+              <div class="header-menu__item header-menu__item_2">
+                <span class="decor decor_1"></span>
+                <span class="decor decor_2"></span>
+                <span class="decor decor_3"></span>
+                <span class="decor decor_4"></span>
+                <div class="line line-1"></div>
+              </div>
+            </div>
+            <div class="header-menu__row">
+              <div class="header-menu__item">
+                <nav class="header-menu__nav" aria-label="Навигация">
+                  <ul class="header-menu__list header-menu__list_1" aria-label="Список навигации">
+                    <li class="header-menu__list-item">
+                      <a class="header-menu__link link-v1" href="services.html" aria-label="Услуги">
+                        Услуги
+                      </a>
+                    </li>
+                    <li class="header-menu__list-item">
+                      <a class="header-menu__link link-v1" href="history.html" aria-label="Документация">
+                        Документация
+                      </a>
+                    </li>
+                    <li class="header-menu__list-item">
+                      <a class="header-menu__link link-v1" href="vacancy.html" aria-label="Вакансии">
+                        Вакансии
+                      </a>
+                    </li>
+                    <li class="header-menu__list-item">
+                      <a class="header-menu__link link-v1" href="projects.html" aria-label="Проекты">
+                        Проекты
+                      </a>
+                    </li>
+                    <li class="header-menu__list-item">
+                      <a class="header-menu__link link-v1" href="history.html" aria-label="Отзывы">
+                        Отзывы
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+                <span class="decor decor_1"></span>
+                <span class="decor decor_2"></span>
+                <span class="decor decor_3"></span>
+                <span class="decor decor_4"></span>
+              </div>
+              <div class="header-menu__item header-menu__item_2">
+                <span class="decor decor_1"></span>
+                <span class="decor decor_2"></span>
+                <span class="decor decor_3"></span>
+                <span class="decor decor_4"></span>
+                <div class="line line-2"></div>
+              </div>
+            </div>
+          </div>
+          <div class="header-menu__bottom">
+            <h3 class="header-menu__subtitle title-v3">
+              Компания «Сибстроймайнинг»
+            </h3>
+            <ul class="header-menu__list header-menu__list_2" aria-label="Список меню">
+              <li class="header-menu__list-item header-menu__list-item_2">
+                <h4 class="header-menu__minititle title-v4">
+                  Офис компании:
+                </h4>
+                <address class="header-menu__address text-v1">
+                  Кемерово, <span>пр. Михайлова, 3а, корпус 2</span>
+                </address>
+              </li>
+              <li class="header-menu__list-item header-menu__list-item_2">
+                <h4 class="header-menu__minititle title-v4">
+                  Телефон:
+                </h4>
+                <a class="header-menu__phone text-v1" href="tel:+79050651290">
+                  +7 905 065 1290
+                </a>
+              </li>
+              <li class="header-menu__list-item header-menu__list-item_2">
+                <h4 class="header-menu__minititle title-v4">
+                  Режим работы:
+                </h4>
+                <p class="header-menu__text text-v1">
+                  пн – пт 8:00 – 17:00
+                </p>
+              </li>
+            </ul>
+            <span class="decor decor_1"></span>
+            <span class="decor decor_2"></span>
+            <span class="decor decor_3"></span>
+            <span class="decor decor_4"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper-form">
+      <div class="wrapper-form__close">
+        <div class="wrapper-form__circle"></div>
+      </div>
+      <div class="wrapper-form__body">
+        <div class="wrapper-form__body-content">
+          <div class="wrapper-form__elements">
+            <div class="wrapper-form__body-top">
+              <div class="wrapper-form__item">
+                <h2 class="wrapper-form__title title-v2 ">
+                  Обратная связь
+                </h2>
+                <span class="decor decor_1"></span>
+                <span class="decor decor_2"></span>
+                <span class="decor decor_3"></span>
+                <span class="decor decor_4"></span>
+              </div>
+              <div class="wrapper-form__item wrapper-form__item_2">
+                <div class="line line-9"></div>
+                <span class="decor decor_1"></span>
+                <span class="decor decor_2"></span>
+                <span class="decor decor_3"></span>
+                <span class="decor decor_4"></span>
+              </div>
+            </div>
+            <div class="wrapper-form__wrapper-form">
+              <form class="wrapper-form__form form-feedback form" action="#!" name="formfeedback" autocomplete="on"
+                aria-label="Форма">
+                <div class="form__top">
+                  <div class="form__item">
+                    <label class="form__label" for="name">
+                      <input class="form__input" type="text" id="name" placeholder="Ф.И.О."
+                        aria-label="Введите ваше имя фамилию и отчество">
+                      <span class="decor decor_1"></span>
+                      <span class="decor decor_2"></span>
+                      <span class="decor decor_3"></span>
+                      <span class="decor decor_4"></span>
+                    </label>
+                    <label class="form__label" for="phone">
+                      <input class="form__input" type="tel" id="phone" placeholder="Телефон"
+                        aria-label="Введите ваш телефон">
+                      <span class="decor decor_1"></span>
+                      <span class="decor decor_2"></span>
+                      <span class="decor decor_3"></span>
+                      <span class="decor decor_4"></span>
+                    </label>
+                    <label class="form__label" for="email">
+                      <input class="form__input" type="email" id="email" placeholder="E-mail"
+                        aria-label="Введите вашу почту">
+                      <span class="decor decor_1"></span>
+                      <span class="decor decor_2"></span>
+                      <span class="decor decor_3"></span>
+                      <span class="decor decor_4"></span>
+                    </label>
+                    <div class="form__wrapper-textarea">
+                      <textarea class="form__textarea" name="commentary" id="textarea"
+                        placeholder="Комментарий (необязательно)" aria-label="Введите ваш комментарий"></textarea>
+                      <span class="decor decor_1"></span>
+                      <span class="decor decor_2"></span>
+                      <span class="decor decor_3"></span>
+                      <span class="decor decor_4"></span>
+                    </div>
+                  </div>
+                  <div class="form__item form__item_2">
+                    <div class="line line-10"></div>
+                    <span class="decor decor_1"></span>
+                    <span class="decor decor_2"></span>
+                    <span class="decor decor_3"></span>
+                    <span class="decor decor_4"></span>
+                  </div>
+                </div>
+                <div class="form__bottom">
+                  <button class="form__button" type="submit">
+                    Отправить
+                    <span class="decor decor_1"></span>
+                    <span class="decor decor_2"></span>
+                    <span class="decor decor_3"></span>
+                    <span class="decor decor_4"></span>
+                  </button>
+                  <p class="form__text">
+                    Нажимая на кнопку "Отправить", вы соглашаетесь с <a href="#!">условиями обработки</a> <a
+                      href="#!">персональных данных и политикой конфиденциальности</a>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="wrapper-form__okay okay">
+            <h2 class="okay__title">Спасибо за обращение! <span>Мы с вами обязательно свяжемся!</span></h2>
+          </div>
+        </div>
+        <button class="wrapper-form__exit" aria-label="Закрыть форму">
+          <svg width="28" height="28">
+            <use xlink:href="./img/svg/sprites.svg#icon-exit"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <button class="upper" aria-label="Переместиться вверх">
+      <span class="button-arrow"></span>
+    </button>
   </div>
 </body>
 
