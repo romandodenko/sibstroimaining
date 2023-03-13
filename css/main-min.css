@@ -2008,7 +2008,8 @@ main:not(:last-child) {
 }
 
 .services {
-  position: relative
+  position: relative;
+  margin: 0 0 80px 0;
 }
 
 .services:not(:last-child) {
