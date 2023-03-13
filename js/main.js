@@ -91,7 +91,7 @@ gsap.registerPlugin(ScrollTrigger,ScrollSmoother)
 ScrollSmoother.create({
 	wrapper: '.page', // оболочка
 	content: '.scroll', // контент который будет плавно скролиться
-	smooth: .5, // скорость
+	smooth: 1.5, // скорость
 	effects: true // возможность влиять на скорость скрола у отдельных элементов data-speed=".6"
 })
 
