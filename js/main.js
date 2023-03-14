@@ -27,6 +27,11 @@ document.addEventListener("click", function (e) {
   if (elementInteractive.closest(".services__item")) { // Открытие и закрытие псевдо аккордеона
 
     if (!elementInteractive.closest(".services__item").classList.contains("active")) {
+
+      document.querySelectorAll(".services__item").forEach(function (e) {
+        e.classList.remove("first-active")
+      })
+
       document.querySelectorAll(".services__item").forEach(function (e) {
         e.classList.remove("active")
       })
@@ -46,6 +51,10 @@ document.addEventListener("click", function (e) {
       elementInteractive.closest(".services__item").querySelector(".services__wrapper-text").style.height = elementInteractive.closest(".services__item").querySelector(".services__wrapper-text").scrollHeight + 'px';
 
     } else {
+
+      document.querySelectorAll(".services__item").forEach(function (e) {
+        e.classList.remove("first-active")
+      })
 
       elementInteractive.closest(".services__item").classList.remove("active");
 
@@ -151,36 +160,36 @@ if (document.body.clientWidth >= 1024) {
   gsap.fromTo('.history-middle__wrapper-text', {
     y: 20,
   }, {
-    y: -100,
+    y: -140,
     scrollTrigger: {
       trigger: '.history-top', // когда в поле зрения появляется этот элемент, начинается анимация
       start: 'bottom center', // когда начинается анимация( в данном примере анимация начинается когда достигает половины блока trigger)
       // end: '820', // когда заканчивается анимация
-      scrub: 2 // чтобы анимация возвращалась к значениям до анимации
+      scrub: 6 // чтобы анимация возвращалась к значениям до анимации
     }
   })
 
   gsap.fromTo('.history-middle__image_1', {
     yPercent: -5,
   }, {
-    yPercent: 5,
+    yPercent: 12,
     scrollTrigger: {
       trigger: '.history-top', // когда в поле зрения появляется этот элемент, начинается анимация
       start: 'bottom center', // когда начинается анимация( в данном примере анимация начинается когда достигает половины блока trigger)
       // end: '820', // когда заканчивается анимация
-      scrub: 2 // чтобы анимация возвращалась к значениям до анимации
+      scrub: 8 // чтобы анимация возвращалась к значениям до анимации
     }
   })
 
   gsap.fromTo('.history-middle__image_2', {
     yPercent: 5,
   }, {
-    yPercent: -5,
+    yPercent: -18,
     scrollTrigger: {
       trigger: '.history-top', // когда в поле зрения появляется этот элемент, начинается анимация
       start: 'bottom center', // когда начинается анимация( в данном примере анимация начинается когда достигает половины блока trigger)
       // end: '820', // когда заканчивается анимация
-      scrub: 2 // чтобы анимация возвращалась к значениям до анимации
+      scrub: 8 // чтобы анимация возвращалась к значениям до анимации
     }
   })
 
@@ -192,7 +201,7 @@ if (document.body.clientWidth >= 1024) {
       trigger: '.history-middle__image_1', // когда в поле зрения появляется этот элемент, начинается анимация
       start: 'top bottom', // когда начинается анимация( в данном примере анимация начинается когда достигает половины блока trigger)
       // end: '820', // когда заканчивается анимация
-      scrub: 5 // чтобы анимация возвращалась к значениям до анимации
+      scrub: 1 // чтобы анимация возвращалась к значениям до анимации
     }
   })
 
@@ -204,7 +213,7 @@ if (document.body.clientWidth >= 1024) {
       trigger: '.history-middle__image_1', // когда в поле зрения появляется этот элемент, начинается анимация
       start: 'top bottom', // когда начинается анимация( в данном примере анимация начинается когда достигает половины блока trigger)
       // end: '820', // когда заканчивается анимация
-      scrub: 5 // чтобы анимация возвращалась к значениям до анимации
+      scrub: 1 // чтобы анимация возвращалась к значениям до анимации
     }
   })
 } else {
