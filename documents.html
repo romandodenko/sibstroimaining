@@ -20,12 +20,12 @@
   <script defer src="./resources/gsap/gsap.min.js"></script>
   <script defer src="./resources/gsap/ScrollTrigger.min.js"></script>
   <script defer src="./resources/gsap/ScrollSmoother.min.js"></script>
-  <script defer src="./resources/parallax/parallax.min.js"></script>
   <script defer src="https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU"></script>
   <script defer src="./resources/validate/new/just-validate.min.js"></script>
   <script defer src="./resources/validate/inputmask.js"></script>
+  <script defer src="./resources/gallery-fslightbox/fslightbox.js"></script>
   <script defer src="./js/main.js"></script>
-  <title>Сибстроймайнинг - Наша история</title>
+  <title>Сибстроймайнинг - Сопроводительные документы</title>
 </head>
 
 <body>
@@ -64,22 +64,26 @@
         </div>
       </header>
       <main>
-        <section class="head head_2">
+        <section class="head">
           <div class="container">
             <div class="head__top">
               <div class="head__image">
                 <picture>
-                  <source media="(min-width: 320px)" srcset="./img/image-1.webp, ./img/image-1-x2.webp 2x"
+                  <source media="(min-width: 601px)" srcset="./img/project-main.webp, ./img/project-main-x2.webp 2x"
                     type="image/webp">
-                  <img src="./img/image-1.jpg" srcset="./img/image-1-x2.jpg 2x" loading="lazy" width="300" height="300"
-                    alt="Картинка">
+                    <source media="(max-width: 600px)" srcset="./img/project-main-2.webp, ./img/project-main-2-x2.webp 2x"
+                    type="image/webp">
+                    <source media="(max-width: 600px)" srcset="./img/project-main-2.jpg, ./img/project-main-2.jpg 2x"
+                    type="image/jpg">
+                  <img src="./img/project-main.jpg" srcset="./img/project-main-x2.jpg 2x" loading="lazy" width="300"
+                    height="300" alt="Картинка">
                 </picture>
               </div>
             </div>
-            <div class="head__bottom">
+            <div class="head__bottom head__bottom_1">
               <div class="head__bottom-item">
                 <h1 class="head__title title-v2">
-                  Наша история
+                  Сопроводительные документы
                 </h1>
                 <span class="decor decor_1"></span>
                 <span class="decor decor_2"></span>
@@ -87,7 +91,7 @@
                 <span class="decor decor_4"></span>
               </div>
               <div class="head__bottom-item head__bottom-item_2">
-                <div class="line line-8"></div>
+                <div class="line line-13"></div>
                 <span class="decor decor_1"></span>
                 <span class="decor decor_2"></span>
                 <span class="decor decor_3"></span>
@@ -96,230 +100,114 @@
             </div>
           </div>
         </section>
-        <section class="history">
-          <div class="elipse elipse_2"></div>
-          <div class="history__container container">
-            <div class="history__top history-top">
-              <div class="history-top__item history-top__item_1">
-                <strong class="history-top__strong title-v3">
-                  На сегодняшний день штат предприятия состоит из более чем 500 высококвалифицированных сотрудников,
-                  в их числе: горномонтажники подземные, МГВМ, ГРОЗ, проходчики,машинисты буровых установок,
-                  горнорабочие подземные, эл. слесаря,инженерно-технические работники, электро-механическая служба.
-                </strong>
-              </div>
-              <div class="history-top__item history-top__item_2">
-                <p class="history-top__text text-v2">
-                  Свою деятельность компания начала, как субподрядчик для наработки своего портфолио и кейсов.
-                </p>
-                <p class="history-top__text text-v2">
-                  Несмотря на то, что компания молодая, наши специалисты — профессионалы своего дела с многолетним опытом, имеют высокий уровень мастерства.За период работы компания имеет большой объем заключенных договоров и выигранных тендеров.
-                </p>
-                <p class="history-top__text text-v2">
-                  Первый объем работ был произведен по восстановлению и приведению в безопасное состояние горной выработки флангового вентиляционного уклона ш. «Т-Западная 2».
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="history__middle history-middle parallax-init">
-            <div class="history-middle__wrapper-text">
-              <h2 class="history-middle__title title-v1">
-                <span>ООО «Сибстроймайнинг»</span>
-                Основано в 2021
-              </h2>
-            </div>
-            <div class="history-middle__image history-middle__image_1" data-depth-x="0.2">
-              <picture>
-                <source media="(min-width: 320px)" srcset="./img/parallax-1.webp, ./img/parallax-1-x2.webp 2x"
-                  type="image/webp">
-                <img src="./img/parallax-1.png" srcset="./img/parallax-1-x2.png 2x" alt="Картинка">
-              </picture>
-            </div>
-            <div class="history-middle__image history-middle__image_2" data-depth-x="-0.1">
-              <picture>
-                <source media="(min-width: 320px)" srcset="./img/parallax-2.webp, ./img/parallax-2-x2.webp 2x"
-                  type="image/webp">
-                <img src="./img/parallax-2.png" srcset="./img/parallax-2-x2.png 2x" alt="Картинка">
-              </picture>
-            </div>
-            <div class="history-middle__image history-middle__image_3" data-depth="0.5">
-              <picture>
-                <source media="(min-width: 320px)" srcset="./img/parallax-3.webp, ./img/parallax-3-x2.webp 2x"
-                  type="image/webp">
-                <img src="./img/parallax-3.png" srcset="./img/parallax-3-x2.png 2x" alt="Картинка">
-              </picture>
-            </div>
-            <div class="history-middle__image history-middle__image_4" data-depth="0.5">
-              <picture>
-                <source media="(min-width: 320px)" srcset="./img/parallax-4.webp, ./img/parallax-4-x2.webp 2x"
-                  type="image/webp">
-                <img src="./img/parallax-4.png" srcset="./img/parallax-4-x2.png 2x" alt="Картинка">
-              </picture>
-            </div>
-          </div>
-          <div class="history__container container">
-            <div class="history__bottom history-bottom">
-              <strong class="history-bottom__strong title-v3">
-                Начиная с 2021 г. было пройдено более 2 500 п.м. выработки, смонтировано более 15 ленточных конвейеров.
-              </strong>
-            </div>
-            <div class="history__footer history-footer">
-              <ul class="history-footer__list">
-                <li class="history-footer__item">
-                  <span class="history-footer__num">
-                    01
-                  </span>
-                  <div class="history-footer__descr">
-                    <p class="history-footer__text">
-                      <span class="history-footer__text-span history-footer__text-span_1">2 <span>более
-                          <span>лет</span></span></span>
-                      Опыт работы
-                    </p>
-                  </div>
-                  <span class="decor decor_1"></span>
-                  <span class="decor decor_2"></span>
-                  <span class="decor decor_3"></span>
-                  <span class="decor decor_4"></span>
-                </li>
-                <li class="history-footer__item">
-                  <span class="history-footer__num">
-                    02
-                  </span>
-                  <div class="history-footer__descr">
-                    <p class="history-footer__text">
-                      <span class="history-footer__text-span history-footer__text-span_3">Лучшие специалисты </span>
-                      в отрасли
-                    </p>
-                  </div>
-                  <span class="decor decor_1"></span>
-                  <span class="decor decor_2"></span>
-                  <span class="decor decor_3"></span>
-                  <span class="decor decor_4"></span>
-                </li>
-                <li class="history-footer__item">
-                  <span class="history-footer__num">
-                    03
-                  </span>
-                  <div class="history-footer__descr">
-                    <p class="history-footer__text">
-                      <span class="history-footer__text-span history-footer__text-span_3">Гарантия </span>
-                      на все виды работ – 24 месяца
-                    </p>
-                  </div>
-                  <span class="decor decor_1"></span>
-                  <span class="decor decor_2"></span>
-                  <span class="decor decor_3"></span>
-                  <span class="decor decor_4"></span>
-                </li>
-                <li class="history-footer__item">
-                  <span class="history-footer__num">
-                    04
-                  </span>
-                  <div class="history-footer__descr">
-                    <p class="history-footer__text">
-                      <span class="history-footer__text-span history-footer__text-span_2">500 <span>более</span></span>
-                      человек в штате
-                    </p>
-                  </div>
-                  <span class="decor decor_1"></span>
-                  <span class="decor decor_2"></span>
-                  <span class="decor decor_3"></span>
-                  <span class="decor decor_4"></span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section class="rewievs">
+        <section class="documents">
           <div class="container">
-            <ul class="rewievs__list">
-              <li class="rewievs__item">
-                <h2 class="rewievs__title title-v2">
-                  Отзывы о компании
-                </h2>
-                <span class="decor decor_1"></span>
-                <span class="decor decor_2"></span>
-                <span class="decor decor_3"></span>
-                <span class="decor decor_4"></span>
-              </li>
-              <li class="rewievs__item">
-                <span class="decor decor_1"></span>
-                <span class="decor decor_2"></span>
-                <span class="decor decor_3"></span>
-                <span class="decor decor_4"></span>
-                <p class="rewievs__text rewievs__text_1 text-v1">
-                  Работы были выполнены в строго установленные сроки, в соответствии с необходимыми требованиями.
-                  Выражаем ООО «Сибстроймайнинг» благодарность за качественное выполнение работ
-                </p>
-                <p class="rewievs__text text-v2">
-                  Директор по производству АО «Суэк - Кузбасс»
-                  <span>Владимир Николаевич Шмат</span>
-                </p>
-              </li>
-            </ul>
-            <div class="rewievs__wrapper-slider">
-              <div class="rewievs-slider swiper">
-                <div class="rewievs-slider__wrapper swiper-wrapper">
-                  <div class="rewievs-slider__slide swiper-slide">
-                    <div class="rewievs-slider__image">
+            <div class="documents__wrapper-slider">
+              <div class="documents-slider swiper">
+                <div class="documents-slider__wrapper swiper-wrapper">
+                  <div class="documents-slider__slide swiper-slide">
+                    <a data-fslightbox="gallery" class="documents-slider__image" href="./img/doc-1-f.jpg"
+                      aria-label="Окрыть документ">
                       <picture>
-                        <source media="(min-width: 320px)" srcset="./img/slider-1.webp, ./img/slider-1-x2.webp 2x"
+                        <source media="(min-width: 320px)" srcset="./img/doc-1.webp, ./img/doc-1-x2.webp 2x"
                           type="image/webp">
-                        <img src="./img/slider-1.jpg" srcset="./img/slider-1-x2.png 2x" loading="lazy" width="300"
-                          height="300" alt="Картинка">
+                        <img src="./img/doc-1.jpg" srcset="./img/doc-1-x2.jpg 2x" loading="lazy" width="30" height="30"
+                          alt="Картинка">
                       </picture>
-                    </div>
-                    <div class="rewievs-slider__descr">
-                      <p class="rewievs-slider__text">Строительство двух стволов с поверхности сечением 33м2 на ш.
-                        «Сибирская»</p>
-                    </div>
+                    </a>
                   </div>
-                  <div class="rewievs-slider__slide swiper-slide">
-                    <div class="rewievs-slider__image">
+                  <div class="documents-slider__slide swiper-slide">
+                    <a data-fslightbox="gallery" class="documents-slider__image" href="./img/doc-2-f.jpg"
+                      aria-label="Окрыть документ">
                       <picture>
-                        <source media="(min-width: 320px)" srcset="./img/slider-1.webp, ./img/slider-1-x2.webp 2x"
+                        <source media="(min-width: 320px)" srcset="./img/doc-2.webp, ./img/doc-2-x2.webp 2x"
                           type="image/webp">
-                        <img src="./img/slider-1.jpg" srcset="./img/slider-1-x2.png 2x" loading="lazy" width="300"
-                          height="300" alt="Картинка">
+                        <img src="./img/doc-2.jpg" srcset="./img/doc-2-x2.jpg 2x" loading="lazy" width="30" height="30"
+                          alt="Картинка">
                       </picture>
-                    </div>
-                    <div class="rewievs-slider__descr">
-                      <p class="rewievs-slider__text">Строительство двух стволов с поверхности сечением 33м2 на ш.
-                        «Сибирская»</p>
-                    </div>
+                    </a>
                   </div>
-                  <div class="rewievs-slider__slide swiper-slide">
-                    <div class="rewievs-slider__image">
+                  <div class="documents-slider__slide swiper-slide">
+                    <a data-fslightbox="gallery" class="documents-slider__image" href="./img/doc-3-f.jpg"
+                      aria-label="Окрыть документ">
                       <picture>
-                        <source media="(min-width: 320px)" srcset="./img/slider-1.webp, ./img/slider-1-x2.webp 2x"
+                        <source media="(min-width: 320px)" srcset="./img/doc-3.webp, ./img/doc-3-x2.webp 2x"
                           type="image/webp">
-                        <img src="./img/slider-1.jpg" srcset="./img/slider-1-x2.png 2x" loading="lazy" width="300"
-                          height="300" alt="Картинка">
+                        <img src="./img/doc-3.jpg" srcset="./img/doc-3-x2.jpg 2x" loading="lazy" width="30" height="30"
+                          alt="Картинка">
                       </picture>
-                    </div>
-                    <div class="rewievs-slider__descr">
-                      <p class="rewievs-slider__text">Строительство двух стволов с поверхности сечением 33м2 на ш.
-                        «Сибирская»</p>
-                    </div>
+                    </a>
+                  </div>
+                  <div class="documents-slider__slide swiper-slide">
+                    <a data-fslightbox="gallery" class="documents-slider__image" href="./img/doc-4-f.jpg"
+                      aria-label="Окрыть документ">
+                      <picture>
+                        <source media="(min-width: 320px)" srcset="./img/doc-4.webp, ./img/doc-4-x2.webp 2x"
+                          type="image/webp">
+                        <img src="./img/doc-4.jpg" srcset="./img/doc-4-x2.jpg 2x" loading="lazy" width="30" height="30"
+                          alt="Картинка">
+                      </picture>
+                    </a>
+                  </div>
+                  <div class="documents-slider__slide swiper-slide">
+                    <a data-fslightbox="gallery" class="documents-slider__image" href="./img/doc-5-f.jpg"
+                      aria-label="Окрыть документ">
+                      <picture>
+                        <source media="(min-width: 320px)" srcset="./img/doc-5.webp, ./img/doc-5-x2.webp 2x"
+                          type="image/webp">
+                        <img src="./img/doc-5.jpg" srcset="./img/doc-5-x2.jpg 2x" loading="lazy" width="30" height="30"
+                          alt="Картинка">
+                      </picture>
+                    </a>
+                  </div>
+                  <div class="documents-slider__slide swiper-slide">
+                    <a data-fslightbox="gallery" class="documents-slider__image" href="./img/doc-6-f.jpg"
+                      aria-label="Окрыть документ">
+                      <picture>
+                        <source media="(min-width: 320px)" srcset="./img/doc-6.webp, ./img/doc-6-x2.webp 2x"
+                          type="image/webp">
+                        <img src="./img/doc-6.jpg" srcset="./img/doc-6-x2.jpg 2x" loading="lazy" width="30" height="30"
+                          alt="Картинка">
+                      </picture>
+                    </a>
+                  </div>
+                  <div class="documents-slider__slide swiper-slide">
+                    <a data-fslightbox="gallery" class="documents-slider__image" href="./img/doc-7-f.jpg"
+                      aria-label="Окрыть документ">
+                      <picture>
+                        <source media="(min-width: 320px)" srcset="./img/doc-7.webp, ./img/doc-7-x2.webp 2x"
+                          type="image/webp">
+                        <img src="./img/doc-7.jpg" srcset="./img/doc-7-x2.jpg 2x" loading="lazy" width="30" height="30"
+                          alt="Картинка">
+                      </picture>
+                    </a>
                   </div>
                 </div>
-              </div>
-              <div class="rewievs__controls">
-                <button class="rewievs__button rewievs-button-prev" aria-label="Перелистнуть слайд назад">
-                  <span class="button-arrow"></span>
-                  <span class="decor decor_1"></span>
-                  <span class="decor decor_2"></span>
-                  <span class="decor decor_3"></span>
-                  <span class="decor decor_4"></span>
-                </button>
-                <button class="rewievs__button rewievs-button-next" aria-label="Перелистнуть слайд вперед">
-                  <span class="button-arrow"></span>
-                  <span class="decor decor_1"></span>
-                  <span class="decor decor_2"></span>
-                  <span class="decor decor_3"></span>
-                  <span class="decor decor_4"></span>
-                </button>
+                <div class="documents__controls">
+                  <button class="documents__button documents-slider-button-prev" aria-label="Перелистнуть слайд назад">
+                    <span class="button-arrow"></span>
+                    <span class="decor decor_1"></span>
+                    <span class="decor decor_2"></span>
+                    <span class="decor decor_3"></span>
+                    <span class="decor decor_4"></span>
+                  </button>
+                  <button class="documents__button documents-slider-button-next" aria-label="Перелистнуть слайд вперед">
+                    <span class="button-arrow"></span>
+                    <span class="decor decor_1"></span>
+                    <span class="decor decor_2"></span>
+                    <span class="decor decor_3"></span>
+                    <span class="decor decor_4"></span>
+                  </button>
+                </div>
               </div>
             </div>
+            <a class="documents__link button-v1" download href="./documents.pdf" aria-label="Скачать файлы">
+              Скачать все
+              <span class="decor decor_1"></span>
+              <span class="decor decor_2"></span>
+              <span class="decor decor_3"></span>
+              <span class="decor decor_4"></span>
+            </a>
           </div>
         </section>
       </main>
